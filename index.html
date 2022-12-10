@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color-finder</title>
+  </head>
+  <!-- Styling -->
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      top: 40%;
+      left: 35%;
+    }
+    input {
+      font-size: 2rem;
+      border: none;
+      background-color: transparent;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+    }
+    span {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    #btn {
+      position: absolute;
+      margin-top: 80px;
+      margin-right: 13rem;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+    #text {
+      margin-bottom: 22px;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+    #message {
+      position: absolute;
+      bottom: 50px;
+      margin-left: 100px;
+      color: red;
+    }
+  </style>
+
+  <!-- Html  -->
+  <body>
+    <div class="container">
+      <p id="message"></p>
+      <p id="text">
+        <span id="content"></span><span id="main">S</span
+        ><span>earch-for-color :</span>
+      </p>
+      <input type="text" id="input" />
+      <button id="btn">Click me</button>
+    </div>
+  </body>
+  <!-- JavaScript  -->
+  <script>
+    btn.addEventListener("click", (e) => {
+      input.innerHTML = input.value.toUpperCase();
+      document.body.style.backgroundColor = input.value;
+      input.style.backgroundColor = input.value;
+      input.style.border = input.value;
+      btn.style.backgroundColor = input.value;
+      if (input.value == "black") {
+        input.style.color = "white";
+        text.style.color = "white";
+        btn.style.color = "white";
+        btn.style.border = "1px solid white";
+      }
+
+      if (input.value.length > 0) {
+        content.innerHTML = ` You-`;
+        main.innerHTML = main.innerText.charAt(0).toLowerCase();
+      } else {
+        message.innerHTML = "Enter a color name";
+      }
+      if (
+        document.body.style.backgroundColor === "" &&
+        input.value.length > 0
+      ) {
+        message.innerHTML = "This color is not exist";
+      }
+    });
+  </script>
+</html>
